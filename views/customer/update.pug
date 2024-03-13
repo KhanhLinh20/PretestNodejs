@@ -1,0 +1,24 @@
+extends ../layout.pug
+
+block content
+  h1 Edit Customer List 
+  form(action=`/customer/updatePost/${data._id}` enctype="multipart/form-data" method='post')
+    div 
+        label ID 
+        input(type="readonly" name='id' value=`${data._id}`)
+    div 
+        label Name 
+        input(name='fullname' value=`${data.fullname}`)
+    div 
+        label email
+        input(name='email' value=`${data.email}`)
+    div 
+        label Password
+        input(name='password' type= 'password' value=`${data.password}`)
+    if data.image != undefined 
+        img(src=`/images/${data.image}`, style="width:100px; height:auto;")
+    div 
+        label Image
+        input(name='image' type= 'file')
+    div 
+        input(type='submit' value='UPDATE')

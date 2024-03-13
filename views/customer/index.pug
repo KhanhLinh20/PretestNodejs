@@ -1,0 +1,34 @@
+extends ../layout.pug
+
+block content
+  h2 
+    a(href="/customer/create") Create new Customer 
+  h1 Customer List
+  
+  table 
+    thead 
+      tr 
+        th Id 
+        th Name 
+        th Email 
+        th Password
+        th Image
+        th Action
+    tbody
+      if customers != '' 
+        each item in customers
+          tr 
+            td= item.id
+            td= item.fullname
+            td= item.email
+            td= item.password
+            td
+              img(src=`/images/${item.image}` style="width:100px;height:auto")
+            td  
+              a(href=`/customer/delete/${item.id}`) 
+                button Delete
+              a(href=`/customer/update/${item.id}`) 
+                button Update
+      else 
+        tr 
+          td(colspan="5") No customer found!
