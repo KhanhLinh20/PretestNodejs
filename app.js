@@ -26,6 +26,7 @@ app.use('/users', usersRouter);
 app.use('/customer', customerRouter);
 
 const mongoose = require('mongoose');
+
 // mongoose.connect("mongodb://127.0.0.1:27017/demo", {useNewUrlParser: true});
 mongoose
   .connect("mongodb+srv://khanhlinhdh98:khanhlinhdh98@cluster0.0xkxg1s.mongodb.net/customer?retryWrites=true&w=majority&appName=Cluster0")
@@ -35,6 +36,7 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
 
 
 // catch 404 and forward to error handler
